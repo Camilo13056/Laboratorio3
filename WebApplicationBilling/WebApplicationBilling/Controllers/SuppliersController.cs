@@ -18,7 +18,7 @@ namespace WebApplicationBilling.Controllers
         }
 
         [HttpGet]
-        // GET: CustomersController
+        // GET: SuppliersController
         public ActionResult Index()
         {
             return View(new SupplierDTO() { });
