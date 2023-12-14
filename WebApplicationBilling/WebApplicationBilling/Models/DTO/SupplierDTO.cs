@@ -3,19 +3,19 @@
     public class SupplierDTO
         {
          
-            public int Id { get; set; }
-            public string CompanyName { get; set; }
+            public int id { get; set; }
+            public string companyName { get; set; }
          
-            public string ContactName { get; set; }
+            public string contactName { get; set; }
       
-            public string ContactTitle { get; set; }
+            public string contactTitle { get; set; }
         
-            public string City { get; set; }
+            public string city { get; set; }
    
-            public string Country { get; set; }
+            public string country { get; set; }
  
-            public string Phone { get; set; }
+            public string phone { get; set; }
        
-            public string? Email { get; set; }
+            public string? email { get; set; }
         }
     }

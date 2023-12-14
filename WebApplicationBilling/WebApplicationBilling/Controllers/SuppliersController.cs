@@ -91,7 +91,7 @@ namespace WebApplicationBilling.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _supplierRepository.UpdateAsync(UrlResources.UrlBase + UrlResources.UrlSuppliers + supplier.Id, supplier);
+                await _supplierRepository.UpdateAsync(UrlResources.UrlBase + UrlResources.UrlSuppliers + supplier.id, supplier);
                 return RedirectToAction(nameof(Index));
             }
 
