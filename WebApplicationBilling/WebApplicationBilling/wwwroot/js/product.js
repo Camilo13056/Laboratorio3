@@ -3,7 +3,7 @@
 });
 
 function loadProducts() {
-    fetch('/Products/GetAllProducts') // Asegúrate de reemplazar con la ruta correcta
+    fetch('/Products/GetAllProducts') // Aseg�rate de reemplazar con la ruta correcta
         .then(response => response.json())
         .then(data => {
             initializeDataTable(data.data);
@@ -25,14 +25,12 @@ function initializeDataTable(products) {
         responsive: true,
         data: products,
         columns: [
-            { title: "ID", data: "ID", className: "column-id" },
-            { title: "NombreCompania", data: "CompanytName", className: "column-companyname" },
-            { title: "NombreContacto", data: "ContactName", className: "column-contactname" },
-            { title: "TituloContacto", data: "ContactTitle", className: "column-contacttitle" },
-            { title: "Ciudad", data: "city", className: "column-city" },
-            { title: "País", data: "country", className: "column-country" },
-            { title: "Teléfono", data: "phone", className: "column-phone" },
-            { title: "Correo", data: "email", className: "column-email" },
+            { title: "id", data: "id", className: "column-id" },
+            { title: "ProductName", data: "productName", className: "column-productname" },
+            { title: "SupplierId", data: "supplierId", className: "column-supplierid" },
+            { title: "UnitPrice", data: "unitPrice", className: "column-unitprice" },
+            { title: "Package", data: "package", className: "column-package" },
+            { title: "IsDiscontinued", data: "isDiscontinued", className: "column-isdiscontinued" },
             {
                 title: "Acciones",
                 data: "id",
@@ -52,12 +50,13 @@ function initializeDataTable(products) {
 
 function Delete(url) {
     Swal.fire({
-        title: "¿Seguro que desea eliminar el registro?",
+        title: "�Est� seguro de querer borrar el registro?",
+        text: "�Esta acci�n no puede ser revertida!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#95FF82',
-        cancelButtonColor: '#FF8282',
-        confirmButtonText: 'Sí, Eliminar',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'S�, b�rralo!',
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
@@ -66,12 +65,12 @@ function Delete(url) {
                 url: url,
                 success: function (response) {
                     if (response && response.success) {
-                        toastr.success(response.message || "Registro eliminado con éxito.");
+                        toastr.success(response.message || "Registro eliminado con �xito.");
                         // Recargar DataTables
                         $('#productsTable').DataTable().clear().destroy();
-                        loadSuppliers();
+                        loadProducts();
                     } else {
-                        toastr.error(response.message || "Ocurrió un error desconocido.");
+                        toastr.error(response.message || "Ocurri� un error desconocido.");
                     }
                 },
                 error: function (error) {
