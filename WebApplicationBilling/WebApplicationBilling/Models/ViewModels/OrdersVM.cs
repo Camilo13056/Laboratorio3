@@ -3,10 +3,10 @@ using WebApplicationBilling.Models.DTO;
 
 namespace WebApplicationBilling.Models.ViewModels
 {
-    public class CustomersVM
+    public class OrderVM
     {
-        public IEnumerable<SelectListItem> ListCustomers { get; set; }
-        public CustomerDTO Customer { get; set; }
+        public IEnumerable<SelectListItem> ListOrders { get; set; }
+        public OrderDTO Order { get; set; }
 
     }
 }
